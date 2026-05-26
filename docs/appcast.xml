@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  DockPops Sparkle appcast — hosted on the PUBLIC release-assets repo
+  so anonymous Sparkle clients (running inside installed customer copies
+  of DockPops) can fetch updates without GitHub authentication.
+
+  The source code repo (Pixley-Growth/dockpops) is private; only DMGs
+  + this appcast + release-notes HTML live here. The split keeps source
+  IP private while making distribution fully public.
+
+  Served at: https://pixley-growth.github.io/dockpops-releases/appcast.xml
+  Polled by: the Sparkle updater embedded in DockPops Complete
+             (configured via SUFeedURL in DockPops/Info.plist).
+             Cadence: on launch + every 24h.
+
+  Each <item> represents a shipped version. Sparkle compares the running
+  app's CFBundleVersion to <sparkle:version> on each item and offers the
+  highest one as an update. The <enclosure>'s sparkle:edSignature is
+  verified against the SUPublicEDKey baked into the installed app's
+  Info.plist (public key: Fv04mx2fDlTZWiK5uM7dGqJ/PP/Eqphd2XffIfnmVhE=);
+  mismatched signatures are silently rejected.
+
+  Per-release update recipe (until the GHA workflow takes over):
+    1. Archive + Distribute → Developer ID in Xcode (notarizes + staples)
+    2. ../tools/build-dmg/build-dmg.sh path/to/notarized.app build
+    3. codesign --sign "Developer ID Application: Applacat LLC (JN6FKBBBYQ)" \
+         --timestamp build/DockPops-<version>.dmg
+    4. /tmp/sparkle-sdk/bin/sign_update --account dockpops-complete \
+         build/DockPops-<version>.dmg
+       — paste sparkle:edSignature + length into a new <item> below
+    5. Push appcast.xml + release-notes/<version>.html to THIS repo
+    6. gh release create v<version> build/DockPops-<version>.dmg \
+         --repo Pixley-Growth/dockpops-releases ...
+-->
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>DockPops</title>
+    <link>https://pixley-growth.github.io/dockpops-releases/appcast.xml</link>
+    <description>Updates for DockPops</description>
+    <language>en</language>
+
+    <item>
+      <title>Version 4.2</title>
+      <pubDate>Tue, 26 May 2026 21:57:09 +0000</pubDate>
+      <sparkle:version>64</sparkle:version>
+      <sparkle:shortVersionString>4.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:releaseNotesLink>https://pixley-growth.github.io/dockpops-releases/release-notes/4.2.html</sparkle:releaseNotesLink>
+      <enclosure
+        url="https://github.com/Pixley-Growth/dockpops-releases/releases/download/v4.2/DockPops-4.2.dmg"
+        sparkle:edSignature="tIusehsyku1yKh8qmbHzbgoY6QmnH1J5BUzJtMK59XlwylSSwLo9D30jLvO2rJYy6g6GiC1pRy/+O38UZyDMBw=="
+        length="14005207"
+        type="application/octet-stream" />
+    </item>
+  </channel>
+</rss>
