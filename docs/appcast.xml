@@ -48,8 +48,8 @@
       <sparkle:releaseNotesLink>https://pixley-growth.github.io/dockpops-releases/release-notes/4.2.html</sparkle:releaseNotesLink>
       <enclosure
         url="https://github.com/Pixley-Growth/dockpops-releases/releases/download/v4.2/DockPops-4.2.dmg"
-        sparkle:edSignature="tIusehsyku1yKh8qmbHzbgoY6QmnH1J5BUzJtMK59XlwylSSwLo9D30jLvO2rJYy6g6GiC1pRy/+O38UZyDMBw=="
-        length="14005207"
+        sparkle:edSignature="l84IjQVfTZ4OWTzzwiFkLDOWZTg9cWZQABY6WiaaD67Ioxem4AbDbl8GwlmK4Oik3R/YpO5O0XgtbEfmz7DxAg=="
+        length="14236873"
         type="application/octet-stream" />
     </item>
   </channel>
