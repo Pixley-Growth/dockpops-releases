@@ -40,6 +40,20 @@
     <language>en</language>
 
     <item>
+      <title>Version 4.3</title>
+      <pubDate>Sat, 30 May 2026 02:05:17 +0000</pubDate>
+      <sparkle:version>65</sparkle:version>
+      <sparkle:shortVersionString>4.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:releaseNotesLink>https://pixley-growth.github.io/dockpops-releases/release-notes/4.3.html</sparkle:releaseNotesLink>
+      <enclosure
+        url="https://github.com/Pixley-Growth/dockpops-releases/releases/download/v4.3/DockPops-4.3.dmg"
+        sparkle:edSignature="mKZ1nUeGUd/S7Tn2hnO2gAnLIJzGFMZXrc2we95pl8Ncz1g88O2TFQXe49O6S8y/rGHODB0dMZaN3Q0VflttDA=="
+        length="14325987"
+        type="application/octet-stream" />
+    </item>
+
+    <item>
       <title>Version 4.2</title>
       <pubDate>Tue, 26 May 2026 21:57:09 +0000</pubDate>
       <sparkle:version>64</sparkle:version>
