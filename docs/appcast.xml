@@ -20,17 +20,19 @@
   Info.plist (public key: Fv04mx2fDlTZWiK5uM7dGqJ/PP/Eqphd2XffIfnmVhE=);
   mismatched signatures are silently rejected.
 
-  Per-release update recipe (until the GHA workflow takes over):
+  Per-release update recipe (until the GHA workflow takes over).
+  (Shell flags below use a unicode dash so this XML comment stays valid;
+   substitute a normal double-hyphen when running the commands.)
     1. Archive + Distribute → Developer ID in Xcode (notarizes + staples)
-    2. ../tools/build-dmg/build-dmg.sh path/to/notarized.app build
-    3. codesign --sign "Developer ID Application: Applacat LLC (JN6FKBBBYQ)" \
-         --timestamp build/DockPops-<version>.dmg
-    4. /tmp/sparkle-sdk/bin/sign_update --account dockpops-complete \
+    2. tools/build-dmg/build-dmg.sh path/to/notarized.app build
+    3. codesign –sign "Developer ID Application: Applacat LLC (JN6FKBBBYQ)"
+         –timestamp build/DockPops-<version>.dmg
+    4. <sparkle>/bin/sign_update –account dockpops-complete
          build/DockPops-<version>.dmg
-       — paste sparkle:edSignature + length into a new <item> below
+       → paste sparkle:edSignature + length into a new item below
     5. Push appcast.xml + release-notes/<version>.html to THIS repo
-    6. gh release create v<version> build/DockPops-<version>.dmg \
-         --repo Pixley-Growth/dockpops-releases ...
+    6. gh release create v<version> build/DockPops-<version>.dmg
+         –repo Pixley-Growth/dockpops-releases
 -->
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
@@ -38,6 +40,20 @@
     <link>https://pixley-growth.github.io/dockpops-releases/appcast.xml</link>
     <description>Updates for DockPops</description>
     <language>en</language>
+
+    <item>
+      <title>Version 4.3.1</title>
+      <pubDate>Tue, 02 Jun 2026 08:10:00 +0000</pubDate>
+      <sparkle:version>67</sparkle:version>
+      <sparkle:shortVersionString>4.3.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:releaseNotesLink>https://pixley-growth.github.io/dockpops-releases/release-notes/4.3.1.html</sparkle:releaseNotesLink>
+      <enclosure
+        url="https://github.com/Pixley-Growth/dockpops-releases/releases/download/v4.3.1/DockPops-4.3.1.dmg"
+        sparkle:edSignature="0Wsu/WLrbUMIyxExQOeDubEyxu5TutfCe7QTmy0IPYpU1GwrwUHMZxcy+GexBYcqrH8KFl46lwZbpGbFmC3fDQ=="
+        length="14332489"
+        type="application/octet-stream" />
+    </item>
 
     <item>
       <title>Version 4.3</title>
