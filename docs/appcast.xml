@@ -42,6 +42,20 @@
     <language>en</language>
 
     <item>
+      <title>Version 6.5</title>
+      <pubDate>Tue, 27 Oct 2026 19:02:54 +0000</pubDate>
+      <sparkle:version>83</sparkle:version>
+      <sparkle:shortVersionString>6.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:releaseNotesLink>https://pixley-growth.github.io/dockpops-releases/release-notes/6.5.html</sparkle:releaseNotesLink>
+      <enclosure
+        url="https://github.com/Pixley-Growth/dockpops-releases/releases/download/v6.5-b83/DockPops-6.5.dmg"
+        sparkle:edSignature="aeO9T1xYPAHCw82JSrABcXPMq6ZwJPRuiSWIGM0qQ2NqB3/aGCUeBmI/eghw84mO32EJcQwaYNdpF/xRDrWcBQ=="
+        length="18834188"
+        type="application/octet-stream" />
+    </item>
+
+    <item>
       <title>Version 6.1</title>
       <pubDate>Fri, 09 Oct 2026 19:12:58 +0000</pubDate>
       <sparkle:version>82</sparkle:version>
